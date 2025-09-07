@@ -3,7 +3,13 @@ on:
   pull_request:
     types: 
       - opened
+    branches:
+      - main
   workflow_dispatch:
+
+  push:
+    branches:
+      - dev
 jobs:
   deploy:
     runs-on: macos-latest
@@ -16,7 +22,7 @@ jobs:
         run: npm ci
       - name: Test code
         run: npm run test
-      - name: Build code
+      - name: Build code 1
         run: npm run build
       - name: Deploy project
         run: echo "Deploying..."
